@@ -10,7 +10,6 @@
   --bg: #060608;
   --bg2: #0e0e12;
   --bg3: #16161d;
-  --bg4: #1e1e28;
   --border: rgba(255,255,255,0.07);
   --border2: rgba(255,255,255,0.12);
   --text: #f0f0f5;
@@ -19,7 +18,6 @@
   --accent: #6366f1;
   --accent2: #818cf8;
   --accent3: #a5b4fc;
-  --glow: rgba(99,102,241,0.15);
   --green: #34d399;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -32,11 +30,8 @@ body {
   overflow: hidden;
 }
 .bg-orb {
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.12;
-  pointer-events: none;
+  position: fixed; border-radius: 50%;
+  filter: blur(80px); opacity: 0.12; pointer-events: none;
   animation: float 8s ease-in-out infinite;
 }
 .bg-orb1 { width:400px; height:400px; background:#6366f1; top:-100px; right:100px; }
@@ -44,6 +39,7 @@ body {
 .bg-orb3 { width:200px; height:200px; background:#06b6d4; top:50%; right:20%; animation-delay:-6s; }
 @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-30px)} }
 
+/* SIDEBAR */
 .sidebar {
   width: 260px; min-width: 260px;
   background: var(--bg2);
@@ -58,14 +54,11 @@ body {
   background: linear-gradient(135deg, #6366f1, #8b5cf6);
   border-radius: 10px;
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Syne', sans-serif;
-  font-size: 14px; font-weight: 800; color: white;
-  letter-spacing: -0.5px;
+  font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 800; color: white;
   box-shadow: 0 0 20px rgba(99,102,241,0.4);
 }
 .logo-name {
-  font-family: 'Syne', sans-serif;
-  font-size: 20px; font-weight: 800; letter-spacing: -0.5px;
+  font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 800;
   background: linear-gradient(90deg, #a5b4fc, #c4b5fd);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
@@ -78,8 +71,7 @@ body {
   border-radius: 12px; color: var(--accent3);
   font-size: 13px; font-weight: 500; cursor: pointer;
   display: flex; align-items: center; gap: 8px;
-  transition: all 0.2s; font-family: inherit;
-  width: calc(100% - 24px);
+  transition: all 0.2s; font-family: inherit; width: calc(100% - 24px);
 }
 .new-btn:hover { background: rgba(99,102,241,0.25); border-color: rgba(99,102,241,0.5); }
 .hist-label {
@@ -111,6 +103,7 @@ body {
 .profile-name { font-size: 13px; font-weight: 500; color: var(--text); }
 .profile-plan { font-size: 11px; color: var(--green); }
 
+/* MAIN */
 .main { flex: 1; display: flex; flex-direction: column; height: 100vh; position: relative; z-index: 1; overflow: hidden; }
 .topbar {
   display: flex; align-items: center; justify-content: space-between;
@@ -121,10 +114,8 @@ body {
   display: flex; align-items: center; gap: 8px;
   padding: 7px 14px; background: var(--bg3);
   border: 1px solid var(--border2); border-radius: 20px;
-  cursor: pointer; font-size: 13px; font-weight: 500; color: var(--text);
-  transition: all 0.2s;
+  font-size: 13px; font-weight: 500; color: var(--text);
 }
-.model-pill:hover { border-color: var(--accent); }
 .model-pulse {
   width: 8px; height: 8px; border-radius: 50%;
   background: var(--green); box-shadow: 0 0 6px var(--green);
@@ -139,23 +130,27 @@ body {
   display: flex; align-items: center; justify-content: center;
   transition: all 0.2s; font-size: 15px;
 }
-.top-btn:hover { background: var(--bg3); color: var(--text); border-color: var(--border2); }
+.top-btn:hover { background: var(--bg3); color: var(--text); }
 
+/* WELCOME */
+#welcomeScreen {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  overflow-y: auto; padding: 40px 24px 20px;
+}
 .welcome-icon {
   width: 72px; height: 72px;
   background: linear-gradient(135deg, #6366f1, #8b5cf6, #a78bfa);
   border-radius: 24px;
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Syne', sans-serif;
-  font-size: 26px; font-weight: 800; color: white;
+  font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 800; color: white;
   margin-bottom: 24px;
   box-shadow: 0 0 40px rgba(99,102,241,0.35);
   animation: iconFloat 4s ease-in-out infinite;
 }
 @keyframes iconFloat { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-8px) rotate(2deg)} }
 .welcome-h1 {
-  font-family: 'Syne', sans-serif;
-  font-size: 38px; font-weight: 800;
+  font-family: 'Syne', sans-serif; font-size: 38px; font-weight: 800;
   text-align: center; line-height: 1.15; margin-bottom: 12px;
 }
 .grad {
@@ -177,6 +172,7 @@ body {
 .card-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
 .card-desc { font-size: 12px; color: var(--text3); line-height: 1.4; }
 
+/* INPUT */
 .input-wrap { width: 100%; max-width: 680px; padding: 0 0 8px; }
 .input-box {
   background: var(--bg2); border: 1px solid var(--border2);
@@ -197,10 +193,8 @@ textarea.msg-input::placeholder { color: var(--text3); }
 .input-tools-row { display: flex; gap: 2px; }
 .tool-chip {
   padding: 5px 10px; border-radius: 8px; border: none;
-  background: transparent; color: var(--text3);
-  font-size: 12px; cursor: pointer;
-  display: flex; align-items: center; gap: 4px;
-  transition: all 0.2s; font-family: inherit;
+  background: transparent; color: var(--text3); font-size: 12px; cursor: pointer;
+  display: flex; align-items: center; gap: 4px; transition: all 0.2s; font-family: inherit;
 }
 .tool-chip:hover { background: var(--bg3); color: var(--text2); }
 .send-btn {
@@ -215,10 +209,10 @@ textarea.msg-input::placeholder { color: var(--text3); }
 .send-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
 .note { font-size: 11px; color: var(--text3); text-align: center; margin-top: 8px; }
 
+/* CHAT */
 #chatScreen { display: none; flex: 1; flex-direction: column; overflow: hidden; }
 .messages { flex: 1; overflow-y: auto; padding: 24px; scroll-behavior: smooth; }
 .messages::-webkit-scrollbar { width: 4px; }
-.messages::-webkit-scrollbar-track { background: transparent; }
 .messages::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
 .msg-row { margin-bottom: 28px; display: flex; gap: 12px; }
 .msg-row.user { justify-content: flex-end; }
@@ -238,7 +232,7 @@ textarea.msg-input::placeholder { color: var(--text3); }
   box-shadow: 0 0 14px rgba(99,102,241,0.3);
 }
 .ai-body { flex: 1; max-width: calc(100% - 46px); }
-.ai-label { font-size: 12px; font-weight: 600; color: var(--accent2); margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+.ai-label { font-size: 12px; font-weight: 600; color: var(--accent2); margin-bottom: 6px; }
 .ai-resp { font-size: 14px; line-height: 1.75; color: var(--text); white-space: pre-wrap; word-break: break-word; }
 .ai-resp code {
   background: var(--bg3); border: 1px solid var(--border);
@@ -314,7 +308,6 @@ textarea.msg-input::placeholder { color: var(--text3); }
     <div class="model-pill">
       <div class="model-pulse"></div>
       RS AI — Claude Powered
-      <span style="color:var(--text3); font-size:11px">▼</span>
     </div>
     <div class="topbar-right">
       <button class="top-btn">↑</button>
@@ -322,10 +315,10 @@ textarea.msg-input::placeholder { color: var(--text3); }
     </div>
   </div>
 
-  <div id="welcomeScreen" style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; overflow-y:auto; padding:40px 24px 20px;">
+  <div id="welcomeScreen">
     <div class="welcome-icon">RS</div>
     <h1 class="welcome-h1">
-      <span>Assalam o Alaikum!<br></span>
+      Assalam o Alaikum!<br>
       <span class="grad">Main RS AI hun</span>
     </h1>
     <p class="welcome-sub">Kuch bhi poochein — Urdu ya English mein — sahi jawab milega</p>
@@ -354,18 +347,16 @@ textarea.msg-input::placeholder { color: var(--text3); }
     <div class="input-wrap">
       <div class="input-box">
         <textarea class="msg-input" id="mainInput" placeholder="Kuch bhi poochein — Urdu ya English mein..." rows="2"
-          onkeydown="handleKey(event,'main')"
-          oninput="autoResize(this)"></textarea>
+          onkeydown="handleKey(event,'main')" oninput="autoResize(this)"></textarea>
         <div class="input-footer">
           <div class="input-tools-row">
             <button class="tool-chip">📎 File</button>
             <button class="tool-chip">🌐 Web</button>
-            <button class="tool-chip">🎙️ Voice</button>
           </div>
           <button class="send-btn" id="mainSend" onclick="startChat()">➤</button>
         </div>
       </div>
-      <div class="note">RS AI real-time sahi jawab deta hai — Claude AI se powered</div>
+      <div class="note">RS AI real jawab deta hai — Claude AI se powered</div>
     </div>
   </div>
 
@@ -375,8 +366,7 @@ textarea.msg-input::placeholder { color: var(--text3); }
       <div class="chat-input-inner">
         <div class="input-box">
           <textarea class="msg-input" id="chatInput" placeholder="Aur kuch poochein..." rows="1"
-            onkeydown="handleKey(event,'chat')"
-            oninput="autoResize(this)"></textarea>
+            onkeydown="handleKey(event,'chat')" oninput="autoResize(this)"></textarea>
           <div class="input-footer">
             <div class="input-tools-row">
               <button class="tool-chip">📎</button>
@@ -395,6 +385,16 @@ textarea.msg-input::placeholder { color: var(--text3); }
 let history = [];
 let isLoading = false;
 
+// Netlify Function ko call karta hai — CORS ka koi masla nahi
+async function callAPI(messages) {
+  const res = await fetch('/.netlify/functions/chat', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ messages })
+  });
+  return res.json();
+}
+
 function autoResize(el) {
   el.style.height = 'auto';
   el.style.height = Math.min(el.scrollHeight, 180) + 'px';
@@ -403,8 +403,7 @@ function handleKey(e, src) {
   if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); src === 'main' ? startChat() : sendChat(); }
 }
 function suggest(text) {
-  document.getElementById('mainInput').value = text;
-  startChat();
+  document.getElementById('mainInput').value = text; startChat();
 }
 function newChat() {
   history = [];
@@ -434,26 +433,22 @@ function addUserBubble(text) {
   const row = document.createElement('div');
   row.className = 'msg-row user';
   row.innerHTML = `<div class="bubble">${escHtml(text)}</div>`;
-  div.appendChild(row);
-  div.scrollTop = div.scrollHeight;
+  div.appendChild(row); div.scrollTop = div.scrollHeight;
 }
 function addTyping() {
   const div = document.getElementById('messagesDiv');
   const row = document.createElement('div');
   row.className = 'msg-row'; row.id = 'typing-row';
-  row.innerHTML = `<div class="ai-av">RS</div><div class="ai-body"><div class="ai-label">RS AI <span style="color:var(--text3);font-weight:400">soch raha hai...</span></div><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div>`;
-  div.appendChild(row);
-  div.scrollTop = div.scrollHeight;
+  row.innerHTML = `<div class="ai-av">RS</div><div class="ai-body"><div class="ai-label">RS AI soch raha hai...</div><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div>`;
+  div.appendChild(row); div.scrollTop = div.scrollHeight;
 }
 function removeTyping() { const el = document.getElementById('typing-row'); if (el) el.remove(); }
 function addAIBubble(text) {
   const div = document.getElementById('messagesDiv');
   const row = document.createElement('div');
   row.className = 'msg-row';
-  const formatted = formatText(text);
-  row.innerHTML = `<div class="ai-av">RS</div><div class="ai-body"><div class="ai-label">RS AI</div><div class="ai-resp">${formatted}</div><div class="msg-actions"><button class="msg-act" onclick="copyText(this)" data-text="${escAttr(text)}">📋 Copy</button><button class="msg-act">👍</button><button class="msg-act">👎</button></div></div>`;
-  div.appendChild(row);
-  div.scrollTop = div.scrollHeight;
+  row.innerHTML = `<div class="ai-av">RS</div><div class="ai-body"><div class="ai-label">RS AI</div><div class="ai-resp">${formatText(text)}</div><div class="msg-actions"><button class="msg-act" onclick="copyText(this)" data-text="${escAttr(text)}">📋 Copy</button><button class="msg-act">👍</button><button class="msg-act">👎</button></div></div>`;
+  div.appendChild(row); div.scrollTop = div.scrollHeight;
 }
 function formatText(text) {
   return escHtml(text)
@@ -474,28 +469,18 @@ async function sendMessage(text) {
   history.push({ role: 'user', content: text });
   addTyping();
   try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        system: 'Aap RS AI hain — ek helpful, smart aur friendly AI assistant. Aap Urdu aur English dono mein baat kar sakte hain. Jab user Urdu mein pooche toh Urdu mein jawab dein, jab English mein pooche toh English mein. Hamesha sahi, detailed aur useful jawab dein.',
-        messages: history
-      })
-    });
-    const data = await res.json();
+    const data = await callAPI(history);
     removeTyping();
     if (data.content && data.content[0]) {
       const reply = data.content[0].text;
       history.push({ role: 'assistant', content: reply });
       addAIBubble(reply);
     } else {
-      addAIBubble('Maafi chahta hun, koi masla aaya. Dobara koshish karein.\n\n⚠️ Note: Is file ko apne server par chalayein — API key set karni hogi.');
+      addAIBubble('⚠️ ' + (data.error || 'Koi masla aaya, dobara try karein.'));
     }
   } catch (err) {
     removeTyping();
-    addAIBubble('⚠️ API error: Is HTML file ko seedha open karne par CORS block hota hai.\n\nSolution:\n1. File ko kisi web server par deploy karein (Netlify, Vercel, etc.)\n2. Ya backend proxy banayein jo API key handle kare.');
+    addAIBubble('⚠️ Masla aaya: ' + err.message);
   }
   isLoading = false; setBtnsDisabled(false);
   document.getElementById('chatInput').focus();
